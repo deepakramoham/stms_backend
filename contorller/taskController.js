@@ -8,13 +8,16 @@ const getAllTasks = async (req, res) => {
 };
 
 const addTask = async (req, res, next) => {
-  if (!req?.body?.taskName) {
-    return res.status(400).json({ message: "Task name is required" });
+  if (!req?.body?.taskName || !req?.body?.userId) {
+    return res
+      .status(400)
+      .json({ message: "Task name and User Id is required" });
   }
 
   const { taskName, userId } = req.body;
   try {
     const task = await Task.create({
+      userId,
       taskName,
     });
     res.status(201).json({
