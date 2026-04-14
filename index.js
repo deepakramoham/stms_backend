@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/student", require("./routes/api/student.js"));
+app.use("/task", require("./routes/api/task.js"));
 
 app.use(errorHandler);
 
