@@ -12,7 +12,7 @@ const addTask = async (req, res, next) => {
     return res.status(400).json({ message: "Task name is required" });
   }
 
-  const { taskName } = req.body;
+  const { taskName, userId } = req.body;
   try {
     const task = await Task.create({
       taskName,
