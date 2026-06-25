@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const taskController = require("../../contorller/taskController");
+const multer = require("../../middleware/multer");
 
 //const ROLES_LIST = require("../../config/roles_list");
 //const verifyRoles = require("../../middleware/verifyRoles");
@@ -11,14 +12,11 @@ const taskController = require("../../contorller/taskController");
 router.get("/", taskController.getAllTasks);
 // router.get("/:_id", taskController.getSubject);
 // router.get("/", subjectController.getAllSubjects);
-router.post(
-  "/",
-
-  taskController.addTask,
-);
+router.post("/", multer.none(), taskController.addTask);
 
 router.put(
   "/:_id",
+  multer.none(),
   //   verifyRoles(ROLES_LIST.Admin, ROLES_LIST.Employee),
   taskController.updateTask,
 );
