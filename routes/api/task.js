@@ -12,6 +12,8 @@ const multer = require("../../middleware/multer");
 router.get("/", taskController.getAllTasks);
 // router.get("/:_id", taskController.getSubject);
 // router.get("/", subjectController.getAllSubjects);
+
+router.get("/:taskId", taskController?.getTaskById);
 router.post("/", multer.none(), taskController.addTask);
 
 router.put(

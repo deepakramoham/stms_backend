@@ -1,5 +1,20 @@
 const Task = require("../model/Task");
 
+const getTaskById = async (req, res) => {
+  if (!req?.params?.taskId)
+    return res.status(400).json({ message: "Task Id required" });
+
+  const task = await Task.findOne({
+    _id: req.params.taskId,
+  }).exec();
+
+  if (!task) {
+    return res
+      .status(400)
+      .json({ message: `Task ID ${req?.params?.taskId} not found` });
+  }
+  res.json({ task });
+};
 const getAllTasks = async (req, res) => {
   const tasks = await Task.find();
   if (!tasks) return res.status(204).json({ message: "No tasks found" });
@@ -76,4 +91,4 @@ const deleteTask = async (req, res) => {
   });
 };
 
-module.exports = { getAllTasks, addTask, updateTask, deleteTask };
+module.exports = { getTaskById, getAllTasks, addTask, updateTask, deleteTask };
