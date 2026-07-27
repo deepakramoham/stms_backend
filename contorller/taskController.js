@@ -21,6 +21,20 @@ const getAllTasks = async (req, res) => {
 
   res.json(tasks);
 };
+const getAllTasksById = async (req, res) => {
+  try {
+    const { userId } = req;
+    console.log(userId)
+
+    const tasks = await Task.find({ userId });
+
+    return res.status(200).json(tasks);
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
 
 const addTask = async (req, res, next) => {
   if (!req?.body?.taskName || !req?.body?.userId) {
@@ -91,4 +105,11 @@ const deleteTask = async (req, res) => {
   });
 };
 
-module.exports = { getTaskById, getAllTasks, addTask, updateTask, deleteTask };
+module.exports = {
+  getTaskById,
+  getAllTasks,
+  getAllTasksById,
+  addTask,
+  updateTask,
+  deleteTask,
+};

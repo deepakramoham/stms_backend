@@ -8,6 +8,7 @@ const { logger } = require("./middleware/logEvents.js");
 const { errorHandler } = require("./middleware/errorHanlder.js");
 const corsOptions = require("./config/corsOptions.js");
 const credentials = require("./middleware/credentials.js");
+const verifyJWT = require("./middleware/verifyJMT.js");
 
 const PORT = process.env.PORT;
 
@@ -23,9 +24,16 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
+app.use("/login", require("./routes/auth.js"));
+app.use("/register", require("./routes/register.js"));
 
 app.use("/student", require("./routes/api/student.js"));
 app.use("/task", require("./routes/api/task.js"));
+
+app.use(verifyJWT);
+
+// app.use("/v1/student", require("./routes/api/v1/student.js"));
+app.use("/v1/task", require("./routes/api/v1/tasks.js"));
 
 app.use(errorHandler);
 
