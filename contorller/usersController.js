@@ -7,7 +7,7 @@ const getAllUsers = async (req, res) => {
   res.json(users);
 };
 
-const suspendUser = async (req, res) => {
+const suspendUser = async (req, res, next) => {
   if (!req?.params?._id) {
     return res.status(400).json({ message: "User Id is required" });
   }
