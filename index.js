@@ -34,6 +34,7 @@ app.use(verifyJWT);
 
 // app.use("/v1/student", require("./routes/api/v1/student.js"));
 app.use("/v1/task", require("./routes/api/v1/tasks.js"));
+app.use("/v1/users", require("./routes/api/v1/users.js"));
 
 app.use(errorHandler);
 
