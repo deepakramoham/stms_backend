@@ -6,6 +6,7 @@ const getTaskById = async (req, res) => {
 
   const task = await Task.findOne({
     _id: req.params.taskId,
+    userId: req.userId,
   }).exec();
 
   if (!task) {
@@ -24,7 +25,7 @@ const getAllTasks = async (req, res) => {
 const getAllTasksById = async (req, res) => {
   try {
     const { userId } = req;
-    console.log(userId)
+    console.log(userId);
 
     const tasks = await Task.find({ userId });
 
@@ -66,7 +67,10 @@ const updateTask = async (req, res, next) => {
   const { taskName } = req.body;
 
   try {
-    const task = await Task.findOne({ _id: req.params._id }).exec();
+    const task = await Task.findOne({
+      _id: req.params._id,
+      userId: req?.userId,
+    }).exec();
 
     if (!task) {
       return res
