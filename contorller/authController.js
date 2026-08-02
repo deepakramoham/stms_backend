@@ -20,6 +20,7 @@ const handleLogin = async (req, res) => {
   //evaluate password
   const match = await bcrypt.compare(password, foundUser.password);
   if (match) {
+    const name = foundUser?.name;
     const role = foundUser?.role;
     //const roles = Object.values(foundUser?.roles).filter(Boolean);
     const id = foundUser?.id;
@@ -35,7 +36,7 @@ const handleLogin = async (req, res) => {
       { expiresIn: "30m" },
     );
 
-    res.json({ id, role, accessToken });
+    res.json({ id, role, name, accessToken });
   } else {
     res.sendStatus(401);
   }
