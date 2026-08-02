@@ -9,8 +9,8 @@ const multer = require("../../middleware/multer");
 //const fs = require("fs");
 
 // Route Handlers
-// router.get("/", taskController.getAllTasks);
-router.get("/", taskController.getAllTasksById);
+router.get("/", taskController.getAllTasks);
+// router.get("/", taskController.getAllTasksById);
 // router.get("/:_id", taskController.getSubject);
 // router.get("/", subjectController.getAllSubjects);
 
