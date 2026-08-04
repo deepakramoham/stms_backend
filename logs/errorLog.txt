@@ -1,0 +1,12 @@
+
+20260728	00:07:48	f6ebec2e-c8bb-441f-b642-85406e8c0534	TypeError:Cannot destructure property 'email' of 'req.body' as it is undefined.
+20260728	00:07:14	11d9913b-4931-4c0a-b475-a9f437987966	TypeError:Cannot destructure property 'email' of '(intermediate value)' as it is undefined.
+20260728	00:07:58	a311530b-ab14-458e-af80-62774a82f1e4	TypeError:Cannot destructure property 'email' of 'req.body' as it is undefined.
+20260801	23:08:08	3f5b7844-ce33-4f31-9694-2758d065665d	SyntaxError:Unexpected token '"', ""{\n  \"na"... is not valid JSON
+20260801	23:08:26	e207681d-c0f0-4f14-8d2d-b075dde006ca	SyntaxError:Unexpected token '"', ""{\n  \"na"... is not valid JSON
+20260801	23:08:43	5bb29e04-d81f-4e0c-ad67-ec578d52bf85	SyntaxError:Unexpected token '"', ""{\n  name"... is not valid JSON
+20260801	23:08:24	115846e1-e67e-4365-a03e-4cd29d9fbfce	SyntaxError:Unexpected token '"', ""{\n  \"na"... is not valid JSON
+20260801	23:08:39	6886ce00-8d6f-4d29-b2ca-8a512580e0fe	SyntaxError:Unexpected token '"', ""{\n  \"na"... is not valid JSON
+20260801	23:08:54	3dff57a7-f9d0-4470-84b0-5511c15f7d90	SyntaxError:Unexpected token '"', ""{\n  \"na"... is not valid JSON
+20260801	23:08:08	ed6a127c-c5a4-4b15-bdfe-84af2b80464e	Error:Cannot set headers after they are sent to the client
+20260801	23:08:37	c29d47af-10e3-41e1-9bb5-5fc85d285897	Error:Cannot set headers after they are sent to the client

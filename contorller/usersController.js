@@ -1,7 +1,43 @@
 const User = require("../model/User");
 
 const getAllUsers = async (req, res) => {
-  const users = await User.find();
+  const users = await User.find({ role: 1000 });
+  // const users = await User.aggregate([
+  //   {
+  //     $match: {
+  //       role: 1000,
+  //     },
+  //   },
+  //   {
+  //     $lookup: {
+  //       from: "tasks",
+  //       let: { userId: "$_id" },
+  //       pipeline: [
+  //         {
+  //           $match: {
+  //             $expr: {
+  //               $eq: [{ $toObjectId: "$userId" }, "$$userId"],
+  //             },
+  //           },
+  //         },
+  //       ],
+  //       as: "tasks",
+  //     },
+  //   },
+  //   {
+  //     $addFields: {
+  //       taskCount: {
+  //         $size: "$tasks",
+  //       },
+  //     },
+  //   },
+  //   {
+  //     $project: {
+  //       password: 0,
+  //       tasks: 0,
+  //     },
+  //   },
+  // ]);
   if (!users) return res.status(204).json({ message: "No users found" });
 
   res.json(users);
