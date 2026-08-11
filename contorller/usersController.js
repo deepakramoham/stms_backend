@@ -57,12 +57,13 @@ const suspendUser = async (req, res, next) => {
         .json({ message: `No user matches with id ${req.params?._id}` });
     }
     if (req.params._id) user.active = !user.active;
+
     const updatedUser = await user.save();
 
     res.status(200).json({
       success: true,
       message: "User updated successfully",
-      user: user,
+      user: updatedUser,
     });
   } catch (err) {
     next(err);
