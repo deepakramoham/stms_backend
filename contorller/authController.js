@@ -9,10 +9,13 @@ const handleLogin = async (req, res) => {
 
   const foundUser = await User.findOne({ email }).exec();
 
-  if (!foundUser) return res.sendStatus(401); //Unauthorized
+  if (!foundUser)
+    return res.status(401).json({
+      message: "Invalid Credentials",
+    }); //Unauthorized
 
   if (!foundUser?.active)
-    return res.status(403).json({
+    return res.status(401).json({
       success: false,
       message:
         "Your account has been suspended. Please contact support for assistance.",
