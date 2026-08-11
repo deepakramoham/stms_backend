@@ -41,7 +41,9 @@ const handleLogin = async (req, res) => {
 
     res.json({ id, role, name, accessToken });
   } else {
-    res.sendStatus(401);
+    res.status(401).json({
+      message: "Invalid Credentials",
+    });
   }
 };
 
